@@ -8,9 +8,7 @@
             {% set class= '' %}
         {% endif %}
 
-        {% set path= ''|page|split('/',5)[4] %}
-
-        <li class="item{{ class }}"><a href="{{ url(code~'/'~path) }}">{{ name|upper }}</a></li>
+        <li class="item{{ class }}"><a href="{{ url(code~this.page.url) }}">{{ name|slice(0,3) }}</a></li>
 
         {% if loop.index < locales|length %}
             <li>|</li>
