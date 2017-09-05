@@ -1,0 +1,17 @@
+<ul class="lang-menu">
+    {% for code, name in locales %}
+        {% if code == activeLocale %}
+            {% set class= ' active' %}
+        {% else %}
+            {% set class= '' %}
+        {% endif %}
+
+        {% set path= ''|page|split('/',5)[4] %}
+
+        <li class="item{{ class }}"><a href="{{ url(code~'/'~path) }}">{{ name|upper }}</a></li>
+
+        {% if loop.index < locales|length %}
+            <li>|</li>
+        {% endif %}
+    {% endfor %}
+</ul>
